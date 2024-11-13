@@ -10,18 +10,15 @@ const sleep = (ms) => {
     return;
 };
 
-// !important : generating random numbers with integrity
+
 const getRandInt = (max) => {
     const secret = crypto.randomBytes(32);
-    // console.log(secret.toString("hex"));
+
 
     let randInt = crypto.randomInt(max);
     var hmac = crypto.createHmac("sha256", crypto.randomBytes(32));
     hmac = hmac.update(randInt.toString()).digest("hex");
-    // console.log(hmac);
 
-    // Convert hex string back to Buffer:
-    // const buffer = Buffer.from(hexString, "hex");
 
     return [randInt, secret.toString("hex"), hmac];
 };
@@ -35,18 +32,18 @@ const parseArg = (arg) => {
         .filter((x) => !Number.isNaN(x));
 };
 
-// !important : How to force async operations to sync with regular flow
+
 const getUserInput = (query) => {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
     });
 
-    // returns the user input
+
     return new Promise((resolve) => {
         rl.question(query.green, (value) => {
             rl.close();
-            resolve(value.toUpperCase()); // learn its significance
+            resolve(value.toUpperCase());
         });
     });
 };
