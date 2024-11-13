@@ -36,7 +36,7 @@ const printHelp = (numDice, allDice) => {
     printTable(numDice, allDice);
 };
 
-const simulateThrow = async () => {
+const simulateThrow = async (args) => {
     let res = await getUserInput("Your selection: ");
     succeed = false;
     while (!succeed) {
@@ -188,7 +188,7 @@ const main = async (args) => {
         console.log(text3);
         sleep(500);
 
-        res = await simulateThrow();
+        res = await simulateThrow(args);
         numsPlayer.push(parseInt(res));
 
         console.log(`My number is ${randInt}\n(KEY=${secret.toUpperCase()})`);
@@ -214,7 +214,7 @@ const main = async (args) => {
         console.log(text3);
         sleep(500);
 
-        res = await simulateThrow();
+        res = await simulateThrow(args);
         numsPlayer.push(parseInt(res));
         console.log(`My number is ${randInt}\n(KEY=${secret.toUpperCase()})`);
         sleep(1000);
@@ -294,7 +294,7 @@ const main = async (args) => {
         console.log(text3);
         sleep(500);
 
-        res = await simulateThrow();
+        res = await simulateThrow(args);
         numsPlayer.push(parseInt(res));
         console.log(`My number is ${randInt}\n(KEY=${secret.toUpperCase()})`);
         sleep(1000);
@@ -319,7 +319,7 @@ const main = async (args) => {
         console.log(text3);
         sleep(500);
 
-        res = await simulateThrow();
+        res = await simulateThrow(args);
         numsPlayer.push(parseInt(res));
         console.log(`My number is ${randInt}\n(KEY=${secret.toUpperCase()})`);
         sleep(1000);
