@@ -1,0 +1,17 @@
+{
+  "name": "ilearning",
+  "version": "1.0.0",
+  "description": "For learning purposes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khubayeeb_k",
+  "license": "ISC",
+  "dependencies": {
+    "@colors/colors": "^1.6.0",
+    "cli-table3": "^0.6.5",
+    "lodash": "^4.17.21",
+    "sha3": "^2.1.4"
+  }
+}
