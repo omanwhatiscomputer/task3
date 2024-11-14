@@ -64,6 +64,16 @@ const simulateThrow = async (args) => {
     }
 };
 
+const printResult = (playerScore, computerScore) => {
+    if (computerScore === playerScore) {
+        console.log(`It's a tie ${playerScore} == ${computerScore}`);
+    } else if (computerScore < playerScore) {
+        console.log(`You win ${playerScore} > ${computerScore}`);
+    } else {
+        console.log(`I win ${playerScore} < ${computerScore}`);
+    }
+};
+
 const main = async (args) => {
     if (!args) {
         console.error(
@@ -235,13 +245,7 @@ const main = async (args) => {
         let playerScore =
             filteredArgs[dieIdxPlayer][(numsPlayer[1] + numsComputer[1]) % 6];
         sleep(1000);
-        if (computerScore === playerScore) {
-            console.log(`It's a tie ${playerScore} == ${computerScore}`);
-        } else if (computerScore < playerScore) {
-            console.log(`You win ${playerScore} > ${computerScore}`);
-        } else {
-            console.log(`I win ${playerScore} < ${computerScore}`);
-        }
+        printResult(playerScore, computerScore);
     } else {
         console.log("You make the first move. Choose your dice:");
         sleep(1000);
@@ -340,13 +344,7 @@ const main = async (args) => {
             filteredArgs[dieIdxComputer][(numsPlayer[0] + numsComputer[0]) % 6];
         let playerScore =
             args[dieIdxPlayer][(numsPlayer[1] + numsComputer[1]) % 6];
-        if (computerScore === playerScore) {
-            console.log(`It's a tie ${playerScore} == ${computerScore}`);
-        } else if (computerScore < playerScore) {
-            console.log(`You win ${playerScore} > ${computerScore}`);
-        } else {
-            console.log(`I win ${playerScore} < ${computerScore}`);
-        }
+        printResult(playerScore, computerScore);
     }
 };
 

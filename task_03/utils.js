@@ -13,7 +13,7 @@ const sleep = (ms) => {
 
 const getRandInt = (max) => {
     const secret = crypto.randomBytes(32);
-
+    
 
     let randInt = crypto.randomInt(max);
     var hmac = crypto.createHmac("sha256", crypto.randomBytes(32));
@@ -39,7 +39,7 @@ const getUserInput = (query) => {
         output: process.stdout,
     });
 
-
+    
     return new Promise((resolve) => {
         rl.question(query.green, (value) => {
             rl.close();
@@ -92,7 +92,7 @@ const logTable = (matrix, allDice) => {
         val.unshift(rowHeaders[idx].brightBlue.bold);
     });
 
-    arr[0][0] = "User Dice ".yellow.bold + "↓".brightBlue.bold;
+    arr[0][0] = "User Dice".yellow.bold.underline + " ↓".brightBlue.bold;
 
     let table = new Table({
         chars: {
